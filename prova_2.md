@@ -31,7 +31,7 @@ O endereço IP 0.0.0.0 é utilizado pelos hosts ao serem inicializados, além di
 
 * Exercícios:
 
-![Exercício de subrede](./subrede_1.pdf)
+![Exercício de subrede](./subrede_1.png)
 
 No enunciado do exercício é definido que a faixa do IP que será distribuida será 192.168.5.0, portanto o primeiro passo será determinar a mascará de rede utilizada. Primeiramente precisamos definir o número de subredes e quantos host teremos no máximo em cada.
 Teremos ao todo 3 subredes com 15, 8 e 2 host, porém não podemos ter uma rede que permita 16 host (o número máximo de host de uma rede é determinado pela quantidade de 0 na máscara de rede) tendo 15 host, pois o primeiro e o último valor dessa rede será destinado ao network address e ao broadcast respectivamente. Logo, vamos determinar a máscara de rede para cada subrede:
@@ -54,4 +54,4 @@ Teremos ao todo 3 subredes com 15, 8 e 2 host, porém não podemos ter uma rede 
 - NET:
     Já a rede de internet será definida com 0.0.0.0, esse IP é usado para se referir a rede atual.
 
-![Exercício de subrede 2](./subrede_2.pdf)
+![Exercício de subrede 2](./subrede_2.png)
