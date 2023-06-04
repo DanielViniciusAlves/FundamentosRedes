@@ -119,3 +119,8 @@ Agora que definimos os endereços de rede e de broadcast podemos atribuir o ende
 
 * V: 
     10.0.0.2, 148.99.0.3, 84.0.0.1, 172.25.0.1. 
+
+### Exercício 3
+![Exercício de subrede 5](./subrede_5.png)
+
+Para calcularmos isso vamos converter para binário o 255.255.224.0: 11111111 11111111 11100000 00000000. Isso quer dizer que essa rede irá ter 2 elevado a 13 hosts (chegamos a esse valor contando a quantidade de 0s restantes) - 2 para cada subrede nela contida (8190 hots), e terá no total 2 elevado a 11 (chegamos a esse valor contando a quantidade de 1s a mais na máscara da classe) subredes (2048 subredes). O que da um total de 16773120 hosts na rede.
