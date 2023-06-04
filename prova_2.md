@@ -29,4 +29,7 @@ O endereço IP 0.0.0.0 é utilizado pelos hosts ao serem inicializados, além di
 
 1.2 Sub-redes
 
+* Exercícios:
+
+![Exercício de subrede](./subrede_1.pdf)
 
