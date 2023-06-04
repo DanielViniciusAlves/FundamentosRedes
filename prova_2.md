@@ -39,17 +39,17 @@ Teremos ao todo 3 subredes com 15, 8 e 2 host, porém não podemos ter uma rede 
 
 - I: 
     Como não podemos ter o máximo de 16 host, pois a rede tem 15 hosts, vamos ter que definir uma máscara que comporte 32 hosts. Logo, quer dizer que a máscara terá 24 bits (determinado pela classe da faixa de IP) mais 3 bits, pois 1 bit a mais vale 128, 2 bits 64 e 3 bits 32: 11111111.11111111.11111111.11100000. Isso equivale a 255.255.255.224(128+64+32). 
-    Assim, o endereço de rede e o endereço de broadcast serão:
+    - Assim, o endereço de rede e o endereço de broadcast serão:
         - 192.168.5.0/27 e 192.168.5.31/27 
     
 - II: 
     Seguindo a mesma linha de raciocínio da subrede anterior, teremos que definir uma subrede com 16 host no máximo. Para isso teremos uma máscara de rede com 28 bits, o que da 11111111.11111111.11111.11110000. Em decimal esse valor é igual a 255.255.255.240.
-    Assim, o endereço de rede e o endereço de broadcast serão:
+    - Assim, o endereço de rede e o endereço de broadcast serão:
         - 192.168.5.32/28 e 192.168.5.47/27 
     
 - III: 
     E por fim temos a subrede três que consegue suportar 2 host com 30 bits 11111111.11111111.11111.11111100 que equivale a 255.255.255.252
-    Assim, o endereço de rede e o endereço de broadcast serão:
+    - Assim, o endereço de rede e o endereço de broadcast serão:
         - 192.168.5.48/30 e 192.168.5.52/30 
     
 - NET:
@@ -57,3 +57,65 @@ Teremos ao todo 3 subredes com 15, 8 e 2 host, porém não podemos ter uma rede 
 
 ### Exercicio 2
 ![Exercício de subrede 2](./subrede_2.png)
+
+Considerando as informações fornecidas sobre os IPs de cada rede, devemos definir suas classes para conseguir cada máscara de rede:
+
+- I:
+    como esse endereço está abaixo de 128.0.0.0 será de classe A. Logo, terá máscara 255.0.0.0.
+- II:
+    como esse endereço está abaixo de 192.0.0.0 e acima de 128.0.0.0 será de classe B. Logo, terá máscara 255.255.0.0.
+- III:
+    como esse endereço está abaixo de 224.0.0.0 e acima de 192.0.0.0 será de classe C. Logo, terá máscara 255.255.255.0.
+- IV:
+    como esse endereço está abaixo de 192.0.0.0 e acima de 128.0.0.0 será de classe B. Logo, terá máscara 255.255.0.0.
+- V:
+    como esse endereço está abaixo de 128.0.0.0 será de classe A. Logo, terá máscar 255.0.0.0.
+
+Agora que isso foi definido vamos montar a máscara de rede começando pela rede I: 
+
+* I:
+   A rede I possui 2 host (X e R), portanto devemos definir uma máscara de rede para 4 host por causa do IP de broadcast e o de endereço de rede.
+   Isso faz com que tenhamos 30 bits na máscara de rede, o que em decimal seria 255.255.255.252. Portanto nosso endereço de rede e broadcast serão:
+   
+   - 10.0.0.0/30 e 10.0.0.3/30
+
+* II:
+   A rede II possui 3 host (R, Y e S), portanto devemos definir 8 host, pois contando com o IP de broadcast e endereço de rede essa rede irá conter 5 host. Para conseguir comportar todos esses hosts iremos ter que usar um máscara de rede com no máximo 8 host.  
+   Isso faz com que tenhamos 29 bits na máscara de rede, o que em decimal seria 255.255.255.248. Portanto nosso endereço de rede e broadcast serão:
+   
+   - 172.25.0.0/29 e 172.25.0.7/29
+
+* III:
+   A rede III possui 2 host (S e Z), portanto devemos definir 4 host.
+   Isso faz com que tenhamos 30 bits na máscara de rede, o que em decimal seria 255.255.255.252. Portanto nosso endereço de rede e broadcast serão:
+   
+   - 192.168.30.0/30 e 192.168.30.3/30
+
+* IV:
+   A rede IV possui 3 host (K, R e T), portanto devemos definir 8 host.
+   Isso faz com que tenhamos 29 bits na máscara de rede, o que em decimal seria 255.255.255.248. Portanto nosso endereço de rede e broadcast serão:
+   
+   - 148.99.0.0/29 e 148.99.0.7/29
+
+* V:
+   A rede V possui 2 host (L e T), portanto devemos definir 4 host.
+   Isso faz com que tenhamos 30 bits na máscara de rede, o que em decimal seria 255.255.255.252. Portanto nosso endereço de rede e broadcast serão:
+   
+   - 84.0.0.0/30 e 82.0.0.3/30
+   
+Agora que definimos os endereços de rede e de broadcast podemos atribuir o endereço IP para cada máquina nos segmentos de rede. Para facilitar esse descrição no documento irei apenas indicar o endereço IP que cada subrede usará para se comunicar com X, K, T e S (sempre nessa ordem): 
+
+* I: 
+    10.0.0.1, 148.99.0.2, 148.99.0.2, 172.25.0.1.
+
+* II: 
+    10.0.0.2, 148.99.0.2, 148.99.0.2, 172.25.0.2.
+
+* III: 
+    10.0.0.2, 148.99.0.2, 148.99.0.2, 192.168.30.1. 
+
+* IV: 
+    10.0.0.2, 148.99.0.1, 148.99.0.3, 172.25.0.1. 
+
+* V: 
+    10.0.0.2, 148.99.0.3, 84.0.0.1, 172.25.0.1. 
