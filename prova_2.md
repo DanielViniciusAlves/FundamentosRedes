@@ -33,3 +33,25 @@ O endereço IP 0.0.0.0 é utilizado pelos hosts ao serem inicializados, além di
 
 ![Exercício de subrede](./subrede_1.pdf)
 
+No enunciado do exercício é definido que a faixa do IP que será distribuida será 192.168.5.0, portanto o primeiro passo será determinar a mascará de rede utilizada. Primeiramente precisamos definir o número de subredes e quantos host teremos no máximo em cada.
+Teremos ao todo 3 subredes com 15, 8 e 2 host, porém não podemos ter uma rede que permita 16 host (o número máximo de host de uma rede é determinado pela quantidade de 0 na máscara de rede) tendo 15 host, pois o primeiro e o último valor dessa rede será destinado ao network address e ao broadcast respectivamente. Logo, vamos determinar a máscara de rede para cada subrede:
+
+- I: 
+    Como não podemos ter o máximo de 16 host, pois a rede tem 15 hosts, vamos ter que definir uma máscara que comporte 32 hosts. Logo, quer dizer que a máscara terá 24 bits (determinado pela classe da faixa de IP) mais 3 bits, pois 1 bit a mais vale 128, 2 bits 64 e 3 bits 32: 11111111.11111111.11111111.11100000. Isso equivale a 255.255.255.224(128+64+32). 
+    Assim, o endereço de rede e o endereço de broadcast serão:
+        - 192.168.5.0/27 e 192.168.5.31/27 
+    
+- II: 
+    Seguindo a mesma linha de raciocínio da subrede anterior, teremos que definir uma subrede com 16 host no máximo. Para isso teremos uma máscara de rede com 28 bits, o que da 11111111.11111111.11111.11110000. Em decimal esse valor é igual a 255.255.255.240.
+    Assim, o endereço de rede e o endereço de broadcast serão:
+        - 192.168.5.32/28 e 192.168.5.47/27 
+    
+- III: 
+    E por fim temos a subrede três que consegue suportar 2 host com 30 bits 11111111.11111111.11111.11111100 que equivale a 255.255.255.252
+    Assim, o endereço de rede e o endereço de broadcast serão:
+        - 192.168.5.48/30 e 192.168.5.52/30 
+    
+- NET:
+    Já a rede de internet será definida com 0.0.0.0, esse IP é usado para se referir a rede atual.
+
+![Exercício de subrede 2](./subrede_2.pdf)
