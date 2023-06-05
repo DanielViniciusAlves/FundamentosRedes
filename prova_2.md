@@ -29,6 +29,8 @@ O endereço IP 0.0.0.0 é utilizado pelos hosts ao serem inicializados, além di
 
 1.2 Sub-redes
 
+Para resolver o problema gerado pelo crescimento da quantidade de hosts em uma rede e o limite de repetidores tornou-se necessário a criação das chamadas subredes. Subredes nada mais são que a divisão da rede para uso interno, mas externamente continua funcionando como uma única rede.
+Com o intuito de facilitar o endereçamento das máquinas foi criado o esquema de máscaras de rede, que utilizam de alguns bits do número de hosts para indicar as subredes da rede. 
 * Exercícios:
 
 ### Exercício 1
@@ -124,3 +126,5 @@ Agora que definimos os endereços de rede e de broadcast podemos atribuir o ende
 ![Exercício de subrede 5](./subrede_5.png)
 
 Para calcularmos isso vamos converter para binário o 255.255.224.0: 11111111 11111111 11100000 00000000. Isso quer dizer que essa rede irá ter 2 elevado a 13 hosts (chegamos a esse valor contando a quantidade de 0s restantes) - 2 para cada subrede nela contida (8190 hots), e terá no total 2 elevado a 11 (chegamos a esse valor contando a quantidade de 1s a mais na máscara da classe) subredes (2048 subredes). O que da um total de 16773120 hosts na rede.
+
+2. Protocolos de rede
